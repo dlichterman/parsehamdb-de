@@ -17,7 +17,7 @@ namespace parsehamdb_de
         static void Main(string[] args)
         {
             //parse args
-            string filename = "out.csv";
+            string fileName = "out.csv";
             if (args.Count() > 0)
             {
                 if (args[0] == "?")
@@ -27,29 +27,30 @@ namespace parsehamdb_de
                 }
                 else
                 {
-                    filename = args[0];
+                    fileName = args[0];
                 }
             }
                    
-            ProcessFile(filename);
+            ProcessFile(fileName);
 
         }
 
         static public void ProcessFile(string fileName)
         {
 
-            WebClient w = new WebClient();
+            WebClient wc = new WebClient();
             try
 
             {
                 Console.WriteLine("Downloading PDF");
                 File.Delete("temp.pdf");
-                w.DownloadFile(ConfigurationManager.AppSettings["URL"], "temp.pdf");
+                wc.DownloadFile(ConfigurationManager.AppSettings["URL"], "temp.pdf");
                 Console.WriteLine("PDF downloaded");
             }
             catch(Exception e)
             {
                 //
+                Console.WriteLine("Error downloading: " + e.Message);
                 Environment.Exit(-1);
             }
             
@@ -111,22 +112,22 @@ namespace parsehamdb_de
                 if (m.Groups[3].Value.Contains(";") || m.Groups[3].Value.Contains(",")) //Try to parse out address
                 {
                     string[] rec = m.Groups[3].Value.Split(new char[] { ',', ';' });
-                    string outp = "";
+                    string callLine = "";
 
                     if (rec.Count() == 2)
                     {
-                        outp = m.Groups[1].Value + "|" + m.Groups[2].Value + "|" + rec[0].TrimStart(' ') + "||";
+                        callLine = m.Groups[1].Value + "|" + m.Groups[2].Value + "|" + rec[0].TrimStart(' ') + "||";
                         Match m2 = rParsePostal.Match(rec[1]);
-                        outp += m2.Groups[1] + "|" + m2.Groups[2]; 
+                        callLine += m2.Groups[1] + "|" + m2.Groups[2]; 
                     }
                     else
                     {
-                        outp = m.Groups[1].Value + "|" + m.Groups[2].Value + "|" + rec[0].TrimStart(' ') + "|" + rec[1].TrimStart(' ') + "|";
+                        callLine = m.Groups[1].Value + "|" + m.Groups[2].Value + "|" + rec[0].TrimStart(' ') + "|" + rec[1].TrimStart(' ') + "|";
                         Match m2 = rParsePostal.Match(rec[2]);
-                        outp += m2.Groups[1] + "|" + m2.Groups[2];
+                        callLine += m2.Groups[1] + "|" + m2.Groups[2];
                     }
 
-                    callsignsOut.Add(outp);
+                    callsignsOut.Add(callLine);
                 }
                 else
                 {
