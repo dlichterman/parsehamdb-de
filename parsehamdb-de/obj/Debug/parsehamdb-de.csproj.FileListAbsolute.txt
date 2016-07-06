@@ -1,0 +1,28 @@
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.exe.config
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.exe
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.pdb
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.exe
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.pdb
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Core.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\pdfbox-1.8.9.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.Runtime.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Util.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Text.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\commons-logging.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\bin\Debug\fontbox-1.8.9.dll
+d:\user redirect\documents\visual studio 2015\Projects\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.csprojResolveAssemblyReference.cache
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.exe.config
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.exe
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.pdb
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\commons-logging.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\fontbox-1.8.9.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.Runtime.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.exe
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\parsehamdb-de.pdb
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\bin\Debug\pdfbox-1.8.9.dll
+D:\User Redirect\Documents\GitHub\parsehamdb-de\parsehamdb-de\obj\Debug\parsehamdb-de.csprojResolveAssemblyReference.cache
