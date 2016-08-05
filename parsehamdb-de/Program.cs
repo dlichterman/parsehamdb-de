@@ -18,24 +18,53 @@ namespace parsehamdb_de
         {
             //parse args
             string fileName = "out.csv";
+            string rawFilename = "";
+            string URL = "";
+            bool writeRaw = false;
+            bool deleteFile = true;
             if (args.Count() > 0)
             {
                 if (args[0] == "?")
                 {
-                    Console.WriteLine("Optional parameter - enter a filename - otherwise out.csv will be used.");
+                    Console.WriteLine("Optional parameters");
+                    Console.WriteLine("-f [filename] to specify output filename");
+                    Console.WriteLine("-r [filename] to output raw stripped PDF for debugging purposes");
+                    Console.WriteLine("-url [url] to override config file download URL");
+                    Console.WriteLine("-d Do not delete PDF after processing(default to delete)");
                     Environment.Exit(0);
                 }
                 else
                 {
-                    fileName = args[0];
+                    for (int i = 0; i < args.Count(); i++)
+                    {
+                        switch(args[i])
+                        {
+                            case "-f":
+                                fileName = args[i+1];
+                                break;
+                            case "-r":
+                                writeRaw = true;
+                                rawFilename = args[i + 1];
+                                break;
+                            case "-url":
+                                URL = args[i + 1];
+                                break;
+                            case "-d":
+                                deleteFile = false;
+                                break;
+
+                        } 
+                        
+                    }
                 }
+                
             }
                    
-            ProcessFile(fileName);
+            ProcessFile(fileName, writeRaw, rawFilename,URL, deleteFile);
 
         }
 
-        static public void ProcessFile(string fileName)
+        static public void ProcessFile(string fileName,bool writeRaw,string rawFilename,string URL, bool deleteFile)
         {
 
             WebClient wc = new WebClient();
@@ -44,7 +73,14 @@ namespace parsehamdb_de
             {
                 Console.WriteLine("Downloading PDF");
                 File.Delete("temp.pdf");
-                wc.DownloadFile(ConfigurationManager.AppSettings["URL"], "temp.pdf");
+                if (URL != "")
+                {
+                    wc.DownloadFile(URL, "temp.pdf");
+                }
+                else
+                {
+                    wc.DownloadFile(ConfigurationManager.AppSettings["URL"], "temp.pdf");
+                }
                 Console.WriteLine("PDF downloaded");
             }
             catch(Exception e)
@@ -61,6 +97,10 @@ namespace parsehamdb_de
                 doc = PDDocument.load("temp.pdf");
                 PDFTextStripper stripper = new PDFTextStripper();
                 rawpdf = stripper.getText(doc);
+                if (writeRaw)
+                {
+                    System.IO.File.WriteAllText(rawFilename, rawpdf);
+                }
                 Console.WriteLine("PDF imported");
             }
             finally
@@ -72,7 +112,7 @@ namespace parsehamdb_de
             }
 
             Regex rCall = new Regex(@"[D][A-Z][\d][A-Z]{1,3},");
-            Regex rPage = new Regex(@"[ ][S][e][i][t][e][ ][\d][ ]");
+            Regex rPage = new Regex(@"[ ][S][e][i][t][e][ ][\d]+[ ]");
             //string reg = @"[D][A-Z][\d][A-Z]{1,3},";
 
             List<string> callsigns = new List<string>();
@@ -142,7 +182,10 @@ namespace parsehamdb_de
             }
             
             file.Close();
-            File.Delete("temp.pdf");
+            if (deleteFile)
+            {
+                File.Delete("temp.pdf");
+            }
         }
     }
 }
